@@ -1,0 +1,54 @@
+// Normal function, will be created as soon as the program runs.
+function foo(param) {
+  console.log('foo --', param);
+  return 'foo';
+}
+
+// Will be created when invoked, helpful for performance (when you want to run inside if statement).
+const bar = function(param) {
+  console.log('bar --', param);
+  
+  return 'bar';
+}
+
+// Arrow function: "this" points to the enclosed scope.
+const zoo = param => {
+  return 23 + param;
+}
+
+
+
+// Need to play around see what happens
+const map = (list, func) => {
+  const newList = [];
+  for (const elem of list) {
+    newList.push(func(elem));
+  }
+  return newList;
+}
+
+const list = [1,2,3,4,5];
+
+const a = 23;
+
+const obj = {
+  num: 23,
+  func: function(list) {
+    return list.map(x => x + this.num)
+  },
+  zoo: function (list) {
+    return x => x + this.num;
+  }
+}
+
+console.log(
+  obj.func(list);
+)
+
+/*
+***********************
+Try stuff until here
+***********************
+*/
+
+//TODO: Lexical Scope, Execution Context, Closures
